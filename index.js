@@ -10,7 +10,8 @@ app.get("/songs", (req, res) => {
   const songDir = path.join(__dirname, "public", "songs");
   fs.readdir(songDir, (err, files) => {
     if (err) {
-      return res.send("unable to scan the directory");
+      console.error("Error reading songs directory:", err);
+      return res.status(500).send("Server error");
     }
     const songs = files
       .filter((file) => file.endsWith(".mp3"))
