@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 app.get("/songs", (req, res) => {
-  const songDir = path.join(__dirname, "public", "songs");
+  const songDir = path.join(__dirname, "public");
   fs.readdir(songDir, (err, files) => {
     if (err) {
       console.error("Error reading songs directory:", err);
@@ -17,7 +17,7 @@ app.get("/songs", (req, res) => {
       .filter((file) => file.endsWith(".mp3"))
       .map((file) => ({
         songName: file,
-        songURL: `/songs/${file}`,
+        songURL: `/${file}`,
       }));
     console.log(songs);
     res.setHeader("Content-Type", "application/json");
