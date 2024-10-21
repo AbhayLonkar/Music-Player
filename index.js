@@ -20,6 +20,7 @@ app.get("/songs", (req, res) => {
         songURL: `/songs/${file}`,
       }));
     console.log(songs);
+    res.setHeader("Content-Type", "application/json");
     res.json(songs);
   });
   //   res.sendFile(path.join(__dirname, "public", "index.html"));
