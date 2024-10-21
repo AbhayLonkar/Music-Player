@@ -64,7 +64,7 @@ const loadImage = (songURL) => {
 };
 
 const fetchSongs = async () => {
-  let a = await fetch("/songs");
+  let a = await fetch("https://music-player-beige-alpha.vercel.app/songs");
   let b = await a.json();
   temp = b;
   b.forEach((item) => {
