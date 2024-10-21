@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 
-app.get("/songs", (req, res) => {
+app.get("/", (req, res) => {
   const songDir = path.join(__dirname, "public");
   fs.readdir(songDir, (err, files) => {
     if (err) {
@@ -22,8 +22,9 @@ app.get("/songs", (req, res) => {
     songs = JSON.stringify(songs);
     // console.log(songs);
     fs.writeFileSync(path.join(__dirname, "public", "response.json"), songs);
-    res.setHeader("Content-Type", "application/json");
-    res.send(songs);
+    // res.setHeader("Content-Type", "application/json");
+    // res.send(songs);
+    res.sendFile(path.join(__dirname, "index.html"));
   });
 });
 

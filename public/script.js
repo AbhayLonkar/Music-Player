@@ -64,9 +64,9 @@ const loadImage = (songURL) => {
 };
 
 const fetchSongs = async () => {
-  let request = await fetch("/songs");
-  let response = await request.json();
-  temp = response;
+  // let request = await fetch("/songs");
+  // let response = await request.json();
+  // temp = response;
 
   request = await fetch("/response.json");
   console.log(request);
