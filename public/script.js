@@ -64,10 +64,15 @@ const loadImage = (songURL) => {
 };
 
 const fetchSongs = async () => {
-  let a = await fetch("/songs");
-  let b = await a.json();
-  temp = b;
-  b.forEach((item) => {
+  let request = await fetch("/songs");
+  let response = await request.json();
+  temp = response;
+
+  request = await fetch("/response.json");
+  console.log(request);
+  response = await request.json();
+  console.log(response);
+  response.forEach((item) => {
     songs.push(item.songURL);
     songNames.push(item.songName);
     const list = document.createElement("li");
@@ -191,4 +196,9 @@ menu.addEventListener("click", () => {
   sidebar.classList.remove("hide");
   menu.style.display = "none";
   container.style.filter = `blur(10px)`;
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.code == "Space") toggleSongStatus();
+  else return;
 });

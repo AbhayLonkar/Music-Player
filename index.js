@@ -13,18 +13,18 @@ app.get("/songs", (req, res) => {
       console.error("Error reading songs directory:", err);
       return res.status(500).send("Server error");
     }
-    const songs = files
+    let songs = files
       .filter((file) => file.endsWith(".mp3"))
       .map((file) => ({
-        songName: file,
+        songName: `${file}`,
         songURL: `/${file}`,
       }));
-    console.log(songs);
+    songs = JSON.stringify(songs);
+    // console.log(songs);
+    fs.writeFileSync(path.join(__dirname, "public", "response.json"), songs);
     res.setHeader("Content-Type", "application/json");
-    // res.json(songs);
-    res.end(JSON.stringify(songs));
+    res.send(songs);
   });
-  //   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(port, () => {
