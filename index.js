@@ -21,7 +21,8 @@ app.get("/songs", (req, res) => {
       }));
     console.log(songs);
     res.setHeader("Content-Type", "application/json");
-    res.json(songs);
+    // res.json(songs);
+    res.end(JSON.stringify(songs));
   });
   //   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
