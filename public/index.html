@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <img src="/menu.svg" alt="icon" class="menu" id="menu" />
+      <div class="sidebar-container">
+        <img src="/close.svg" alt="X" id="close-sidebar" class="icon" />
+        <h2 class="sidebar-heading">Song List</h2>
+        <div class="list-container">
+          <ol type="1" class="song-list">
+            <!-- <li class="list-item">Song name</li>
+            <li class="list-item">Song name</li> -->
+          </ol>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="img-container">
+          <img src="/moon.jpg" alt="song-image" id="song-thumbnail" />
+        </div>
+        <div class="info-container">
+          <div class="song-name">Song Name</div>
+          <div class="seekbar-container">
+            <input
+              title=""
+              type="range"
+              name="seekbar"
+              id="seekbar"
+              value="0"
+              max="100"
+            />
+          </div>
+          <div class="song-controlls">
+            <div class="current-time">00:00</div>
+            <div class="controlls">
+              <div class="buttons">
+                <img
+                  src="previous.svg"
+                  alt="previous-song"
+                  id="previous-song"
+                />
+                <img src="play.svg" alt="play-song" id="play-pause" />
+                <img src="next.svg" alt="next-song" id="next-song" />
+              </div>
+            </div>
+            <div class="song-length">--:--</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js"></script>
+  <script src="script.js"></script>
+</html>

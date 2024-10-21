@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, "sans-serif";
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: url("/moon.jpg");
+  /* background-size: cover; */
+  background-position: center;
+  transition: background 0.5s;
+  overflow: hidden;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.107);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.container {
+  height: 500px;
+  width: 300px;
+  border: 1px solid floralwhite;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 5px black;
+  justify-content: space-evenly;
+}
+
+.img-container {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-container img {
+  height: auto;
+  min-height: 83%;
+  width: 100%;
+  border-radius: 50%;
+  border: 6px solid whitesmoke;
+  transition: 0.3s;
+}
+
+.img-container img:hover {
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+}
+
+.info-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.song-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.song-name::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  width: 0%;
+  height: 5px;
+  bottom: -5px;
+  transition: all 0.5s;
+}
+
+.song-name:hover::before {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.song-controlls {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.seekbar-container {
+  width: 100%;
+}
+
+#seekbar {
+  accent-color: red;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttons img,
+.current-time,
+.song-length {
+  filter: invert(0.8);
+}
+
+.current-time,
+.song-length {
+  width: 42px;
+}
+
+.buttons img:hover,
+.current-time:hover,
+.song-length:hover {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* SideBar  */
+
+.sidebar-container {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  /* border: 2px solid white; */
+  /* border-right: 1px solid rgba(255, 255, 255, 0.323); */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-top: 15px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 0px 8px black;
+  /* background-color: white; */
+  z-index: 2;
+  transition: 0.2s;
+}
+
+.hide {
+  left: -310px;
+}
+
+.sidebar-heading {
+  color: white;
+  text-align: center;
+}
+
+.icon {
+  display: none;
+  filter: invert(1);
+  height: 25px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  filter: invert(1);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transition: all 0.5s;
+}
+
+.list-container {
+  margin-top: 30px;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: rgba(255, 255, 255, 0.132);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.233);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.444);
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.list-item {
+  /* margin-left: 15px; */
+  list-style-position: inside;
+  width: 100%;
+  padding: 5px;
+  color: white;
+  overflow: hidden;
+  /* border: 1px solid rgba(255, 255, 255, 0.559); */
+  position: relative;
+  cursor: pointer;
+}
+
+.list-item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: white;
+  border-radius: 8px;
+  transition: all 0.5s;
+}
+
+.list-item:hover::before {
+  width: 100%;
+}
